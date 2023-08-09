@@ -5,16 +5,24 @@ import throttle from 'lodash.throttle';
 const iframe = document.querySelector('iframe');
 const player = new Vimeo.Player(iframe);
 
-// 4 
-const onPlay = function(data) {
-    localStorage.setItem('videoplayer-current-time', data.seconds);
-    // data is an object containing properties specific to that event
+// 4
+const onPlay = function (data) {
+  localStorage.setItem('videoplayer-current-time', seconds);
 };
 
+//6
 player.on('timeupdate', throttle(onPlay, 1000));
 
-player.off('play', onPlay);
+//5
+player
+  .setCurrentTime(localStorage.getItem('videoplayer-current-time'))
+  .then(function (seconds) {})
+  .catch(function (error) {
+    switch (error.name) {
+      case 'RangeError':
+        break;
 
-// Alternatively, `off` can be called with just the event name to remove all
-// listeners.
-player.off('play');
+      default:
+        break;
+    }
+  });
