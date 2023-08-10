@@ -7,8 +7,6 @@ const message = document.querySelector('textarea[name="message"]');
 form.addEventListener('input', throttle(inputData, 500));
 form.addEventListener('submit', handleSubmit);
 
-// const object = {};
-
 function inputData(evt) {
   const data = {
     email: email.value,
@@ -19,11 +17,10 @@ function inputData(evt) {
 }
 
 function handleSubmit(evt) {
-  // console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
   evt.preventDefault();
   const savedData = JSON.parse(localStorage.getItem('feedback-form-state'));
   console.log(savedData);
 
-  form.reset();
+  evt.currentTarget.reset();
   localStorage.removeItem('feedback-form-state');
-}
+};

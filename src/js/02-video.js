@@ -14,13 +14,3 @@ player.setCurrentTime(
   JSON.parse(localStorage.getItem('videoplayer-current-time')) || 0
 );
 
-//   .then(function(seconds) {
-// }).catch(function(error) {
-//     switch (error.name) {
-//         case 'RangeError':
-//             break;
-
-//         default:
-//             break;
-//     }
-// });
