@@ -10,7 +10,4 @@ const onPlay = function (data) {
 
 player.on('timeupdate', throttle(onPlay, 1000));
 
-player.setCurrentTime(
-  JSON.parse(localStorage.getItem('videoplayer-current-time')) || 0
-);
-
+player.setCurrentTime(JSON.parse(localStorage.getItem('videoplayer-current-time')) || 0);
